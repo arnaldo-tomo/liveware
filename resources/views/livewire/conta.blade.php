@@ -18,7 +18,7 @@
                     <input type="number" wire:model='idade' class="form-control" placeholder=""
                         aria-describedby="helpId">
                     @error('idade')
-                        <small id="helpId" class="text-muted text-danger">{{ $message }}</small>
+                    <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-4">
