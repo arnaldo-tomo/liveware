@@ -115,7 +115,7 @@
                                     <form wire:submit.prevent="update">
                                         <div class="container-fluid">
                                             <label>id</label>
-                                            <input type="text" wire:model="id">
+                                            <input class="form-control" type="hidden" wire:model="selected_id">
                                             <input class="form-control" type="text" class="form-control" wire:model="nome">
                                         </div>
                                         <div class="container-fluid">
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- {{ $pessoa->links() }} --}}
+                    {{ $pessoa->links() }}
                 </div>
             </div>
             <div class="card-footer text-muted">
