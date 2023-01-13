@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Conta extends Component
 {
-    public $nome;
+    public $nome,$user_id;
     public $idade;
     public $updateMode = false;
     public function render()
@@ -17,6 +17,8 @@ class Conta extends Component
     }
 
     public function limpar(){
+        $this->nome ='';
+        $this->idade ='';
 
     }
     public function save(){
@@ -29,14 +31,14 @@ class Conta extends Component
         $student = new ModelsConta();
         $student->nome = $this->nome;
         $student->idade = $this->idade;
-
         $student->save();
-        session()->flash('message', 'New student has been added successfully');
 
+        session()->flash('message', 'New student has been added successfully');
+        $this->limpar();
+        session('fechar','messade de registro');
         $this->emit('userStore');
 
-        $this->nome ='';
-        $this->idade ='';
+
         $this->dispatchBrowserEvent('close-modal');
 
     }
@@ -44,6 +46,8 @@ class Conta extends Component
     public function delete($id){
       $DELETE = ModelsConta::find($id);
       $DELETE->delete();
+      session()->flash('message', 'New student has been added successfully');
+
     }
     public function edit($id)
     {
@@ -51,6 +55,21 @@ class Conta extends Component
         $user = ModelsConta::where('id',$id)->first();
         $this->nome = $user->nome;
         $this->idade = $user->idade;
+
+    }
+
+
+    public function update(){
+        $user = ModelsConta::find($this->user_id);
+        if($this->user_id){
+            $user->update([
+                $this->nome = $user->nome,
+                $this->idade = $user->idade,
+            ]);
+            $user->update();
+            $this->updateMode = false;
+          session()->flash('message', 'actualizado successfully');
+        }
 
     }
 
