@@ -18,44 +18,11 @@
         <script src="js/bootstrap.min.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        @livewireScripts
 
-        @if (session()->has('message'))
-        <Script>  window.onload = function() { OpenBootstrapPopup(); };function OpenBootstrapPopup() {  $("#exampleModalToggle").modal('hide'); } </script>
-        @endif
 
-        @section('script')
-        <Script>  window.onload = function() { OpenBootstrapPopup(); };function OpenBootstrapPopup() {  $("#exampleModalToggleLabel").modal('hide'); } </script>
-        @endsection
-        @if (session()->has('message'))
-            <script>
-                window.addEventListener('modal', event =>{
-                            $('#exampleModalToggle').modal('hide');
-                        });
-            </script>
-        @endif
+@stack('component-scripts')
+          @livewireScripts
 
-        @push('scripts')
-        <script>
-            window.addEventListener('modal', event =>{
-                $('#exampleModalToggle').modal('hide');
-                $('#editStudentModal').modal('hide');
-                $('#deleteStudentModal').modal('hide');
-            });
-
-            window.addEventListener('modal', event =>{
-                $('#exampleModalToggle').modal('hide');
-            });
-
-            window.addEventListener('show-delete-confirmation-modal', event =>{
-                $('#deleteStudentModal').modal('show');
-            });
-
-            window.addEventListener('show-view-student-modal', event =>{
-                $('#viewStudentModal').modal('show');
-            });
-        </script>
-    @endpush
         </body>
 
     </html>
