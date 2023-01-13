@@ -67,6 +67,7 @@
                     <table class="table table-striped">
                         <thead class="table-light">
                             <tr>
+                                <th>#ID</th>
                                 <th>Nome</th>
                                 <th>Idade</th>
                                 <th>acction</th>
@@ -75,6 +76,7 @@
                         <tbody class="table-group-divider">
                             @foreach ($pessoa as $item)
                                 <tr class="table-primary">
+                                    <td scope="row">{{ $item->id }}</td>
                                     <td scope="row">{{ $item->nome }}</td>
                                     <td>{{ $item->idade }}</td>
                                     <td>
@@ -105,16 +107,16 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalTitleId">Update</h5>
+                                    <h5 class="modal-title" id="modalTitleId">Update..</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form wire:submit.prevent="update">
                                         <div class="container-fluid">
-                                            <label>Nome</label>
-                                            <input type="hidden" wire:model="user_id">
-                                            <input type="text" class="form-control" wire:model="nome">
+                                            <label>id</label>
+                                            <input type="text" wire:model="id">
+                                            <input class="form-control" type="text" class="form-control" wire:model="nome">
                                         </div>
                                         <div class="container-fluid">
                                             <label>Idade</label>
