@@ -1,41 +1,44 @@
 <div class="container">
     <h2>Livewore</h2>
+
     <div class="col-12">
-        <div class="modal fade" wire:ignore.self id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-            tabindex="-1">
+        <div class="modal fade" wire:ignore.self id="exampleModalToggle" aria-hidden="true"
+            aria-labelledby="exampleModalToggleLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalToggleLabel">Registar Produtos</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+
                     <div class="modal-body">
                         <div class="row">
                             <form wire:submit.prevent="save">
-
                                 <div class="col-12">
                                     <label for="">Nome</label>
-                                    <input type="text" wire:model='nome'class="form-control" value="{{ old('nome') }}"
-                                        placeholder="Informe o nome" aria-describedby="helpId">
+                                    <input type="text" wire:model='nome'class="form-control "
+                                        value="{{ old('nome') }}" placeholder="Informe o nome"
+                                        aria-describedby="helpId">
                                     @error('nome')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="col-12">
                                     <label for="">Idade</label>
-                                    <input type="number" wire:model='idade' class="form-control" placeholder="informe a idade"
-                                        aria-describedby="helpId">
+                                    <input type="number" wire:model='idade' class="form-control"
+                                        placeholder="informe a idade" aria-describedby="helpId">
                                     @error('idade')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
-                            <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Regsiatar Produto</button>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Regsiatar
+                            Produto</button>
+                    </div>
+                </div>
                 </form>
             </div>
         </div>
@@ -68,11 +71,38 @@
                                     <td scope="row">{{ $item->nome }}</td>
                                     <td>{{ $item->idade }}</td>
                                     <td>
-                                        <a class="btn btn-primary "><i class="fa fa-edit"></i> Editar</a>
+                                        <a class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#modalId{{ $item->id }}"><i class="fa fa-eye"></i>
+                                            Ver</a>
                                         <a class="btn btn-danger" wire:click="delete({{ $item->id }})"><i
                                                 class="fa fa-trash"></i> Deletar</a>
                                     </td>
                                 </tr>
+
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="modalId{{ $item->id }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="modalTitleId" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container-fluid">
+                                                    {{ $item->nome }}
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
 
                         </tbody>
@@ -84,8 +114,30 @@
                 </div>
             </div>
             <div class="card-footer text-muted">
-               <i class="fa fa-copyright" aria-hidden="true"></i>  Arnaldo Tomo [] 13.janeiro .2023 <i class="fa fa-calendar"></i>
+                <i class="fa fa-copyright" aria-hidden="true"></i> Arnaldo Tomo [] 13.janeiro .2023 <i
+                    class="fa fa-calendar"></i>
             </div>
         </div>
 
     </div>
+    @push('scripts')
+        <script>
+            window.addEventListener('close-modal', event => {
+                $('#exampleModalToggleLabel').modal('hide');
+                $('#editStudentModal').modal('hide');
+                $('#deleteStudentModal').modal('hide');
+            });
+
+            window.addEventListener('show-edit-student-modal', event => {
+                $('#editStudentModal').modal('show');
+            });
+
+            window.addEventListener('show-delete-confirmation-modal', event => {
+                $('#deleteStudentModal').modal('show');
+            });
+
+            window.addEventListener('mostrar', event => {
+                $('#modalId').modal('show');
+            });
+        </script>
+    @endpush
