@@ -27,6 +27,7 @@ class Conta extends Component
     }
 
         public function sair(){
+         $this->updateMode = false;
         $this->limpar();
         }
 
@@ -47,8 +48,8 @@ class Conta extends Component
 
 
         $this->limpar();
-        $this->dispatchBrowserEvent('close-modal');
         $this->updateMode = false;
+        $this->dispatchBrowserEvent('modal');
 
     }
 
