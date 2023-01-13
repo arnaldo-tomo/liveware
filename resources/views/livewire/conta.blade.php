@@ -8,7 +8,7 @@
 
                 <div class="col-4">
                     <label for="">Nome</label>
-                    <input type="text" wire:model='nome'class="form-control" placeholder="Informe o nome" aria-describedby="helpId">
+                    <input type="text" wire:model='nome'class="form-control" value="{{ old('nome') }}" placeholder="Informe o nome" aria-describedby="helpId">
                     @error('nome')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
