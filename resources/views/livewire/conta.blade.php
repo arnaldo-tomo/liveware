@@ -110,7 +110,7 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form wire:submit.prevent="update">
                                         <div class="container-fluid">
                                             <label>Nome</label>
                                             <input type="hidden" wire:model="user_id">
@@ -124,7 +124,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                        <button type="button" wire:click.prevent="update()"
+                                        <button type="submit"
                                         class="btn btn-primary">Save</button>
                                     </div>
                                 </form>
@@ -141,24 +141,26 @@
         </div>
 
     </div>
-    @push('scripts')
-        <script>
-            window.addEventListener('close-modal', event => {
-                $('#exampleModalToggleLabel').modal('hide');
-                $('#editStudentModal').modal('hide');
-                $('#deleteStudentModal').modal('hide');
-            });
 
-            window.addEventListener('show-edit-student-modal', event => {
-                $('#editStudentModal').modal('show');
-            });
+    @section('script')
+    <script>
+        window.addEventListener('close-modal', event => {
+            $('#exampleModalToggleLabel').modal('hide');
+            $('#editStudentModal').modal('hide');
+            $('#deleteStudentModal').modal('hide');
+        });
 
-            window.addEventListener('show-delete-confirmation-modal', event => {
-                $('#deleteStudentModal').modal('show');
-            });
+        window.addEventListener('show-edit-student-modal', event => {
+            $('#editStudentModal').modal('show');
+        });
 
-            window.addEventListener('mostrar', event => {
-                $('#modalId').modal('show');
-            });
-        </script>
-    @endpush
+        window.addEventListener('show-delete-confirmation-modal', event => {
+            $('#deleteStudentModal').modal('show');
+        });
+
+        window.addEventListener('mostrar', event => {
+            $('#modalId').modal('show');
+        });
+    </script>
+    @endsection
+
