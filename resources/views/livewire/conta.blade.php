@@ -144,25 +144,4 @@
 
     </div>
 
-    @section('script')
-    <script>
-        window.addEventListener('close-modal', event => {
-            $('#exampleModalToggleLabel').modal('hide');
-            $('#editStudentModal').modal('hide');
-            $('#deleteStudentModal').modal('hide');
-        });
-
-        window.addEventListener('show-edit-student-modal', event => {
-            $('#editStudentModal').modal('show');
-        });
-
-        window.addEventListener('show-delete-confirmation-modal', event => {
-            $('#deleteStudentModal').modal('show');
-        });
-
-        window.addEventListener('mostrar', event => {
-            $('#modalId').modal('show');
-        });
-    </script>
-    @endsection
 
