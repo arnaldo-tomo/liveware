@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                        <button class="btn btn-primary" wire:click="sair()" aria-label="Close">Cancelar</button>
                         <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Regsiatar
                             Produto</button>
                     </div>
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    {{ $pessoa->links() }}
+                    {{-- {{ $pessoa->links() }} --}}
                 </div>
             </div>
             <div class="card-footer text-muted">
