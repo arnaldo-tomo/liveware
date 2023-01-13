@@ -13,8 +13,8 @@
                         Show a second modal and hide this one with the button below.
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2"
-                            data-bs-toggle="modal">Open second modal</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Open second modal</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-cloud"></i>Regsiatar Produto</button>
                     </div>
                 </div>
             </div>
