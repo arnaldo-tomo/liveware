@@ -60,16 +60,8 @@ class Conta extends Component
 
 
     public function update(){
-        $user = ModelsConta::find($this->user_id);
-        if($this->user_id){
-            $user->update([
-                $this->nome = $user->nome,
-                $this->idade = $user->idade,
-            ]);
-            $user->update();
-            $this->updateMode = false;
-          session()->flash('message', 'actualizado successfully');
-        }
+    $user = ModelsConta::find($this->user_id);
+        dd($this->nome);
 
     }
 
