@@ -19,11 +19,14 @@
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         @livewireScripts
+
+        @if (session('fechar'))
+        <Script>  window.onload = function() { OpenBootstrapPopup(); };function OpenBootstrapPopup() {  $("#exampleModalToggleLabel").modal('hide'); } </script>
+        @endif
         <script type="text/javascript">
         windown.livewire.on('userStore',()=>{
             $('#exampleModalToggle').modal('hide');
-        })
-
+        });
         </script>
         </body>
 
