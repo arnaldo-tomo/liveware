@@ -107,8 +107,14 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="container-fluid">
-                                        {{ $item->nome }}
+                                    <label>Nome</label>
+                                    <input type="hidden" wire:model="user_id">
+                                    <input type="text" class="form-control" wire:model='nome'>
                                     </div>
+                                    <div class="container-fluid">
+                                        <label>Idade</label>
+                                        <input type="text" class="form-control" wire:model='idade'>
+                                        </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
