@@ -42,21 +42,20 @@ class Conta extends Component
         $student->idade = $this->idade;
         $student->save();
 
-        session()->flash('message', 'New student has been added successfully');
-        session('fechar','messade de registro');
-        $this->emit('userStore');
-
-
+        $this->emit('modalClose','#exampleModalToggle');
         $this->limpar();
         $this->updateMode = false;
-        $this->dispatchBrowserEvent('modal');
+        session()->flash('message', 'New student has been added successfully');
+
+
 
     }
 
     public function delete($id){
       $DELETE = ModelsConta::find($id);
       $DELETE->delete();
-      session()->flash('message', 'New student has been added successfully');
+      return back()->with('message', 'deletado com sicssse');
+    //   session('message', 'New student has been added successfully');
 
     }
     public function edit($id)
