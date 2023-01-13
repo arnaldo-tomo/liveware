@@ -16,7 +16,7 @@ class Conta extends Component
     public $updateMode = false;
     public function render()
     {
-        $pessoa = ModelsConta::paginate(2);
+        $pessoa = ModelsConta::all();
         return view('livewire.conta',compact('pessoa'))->layout('app');
     }
 
@@ -25,25 +25,30 @@ class Conta extends Component
         $this->idade ='';
 
     }
+
+        public function sair(){
+        $this->limpar();
+        }
+
     public function save(){
 
         $this->validate([
-            'nome' => 'required|email',
+            'nome' => 'required|string',
             'idade' => 'required|numeric',
         ]);
-
         $student = new ModelsConta();
         $student->nome = $this->nome;
         $student->idade = $this->idade;
         $student->save();
 
         session()->flash('message', 'New student has been added successfully');
-        $this->limpar();
         session('fechar','messade de registro');
         $this->emit('userStore');
 
 
+        $this->limpar();
         $this->dispatchBrowserEvent('close-modal');
+        $this->updateMode = false;
 
     }
 
@@ -60,19 +65,15 @@ class Conta extends Component
         $this->selected_id = $id;
         $this->nome = $user->nome;
         $this->idade = $user->idade;
-
     }
 
 
     public function update(){
-
+        $this->updateMode = false;
         $student =  ModelsConta::find($this->selected_id);
-        // dd($student);
         $student->nome = $this->nome;
         $student->idade = $this->idade;
         $student->update();
-
-
     }
 
 
