@@ -7,8 +7,7 @@
                     <label for="">Nome</label>
                     <input type="text" wire:model='nome'class="form-control" placeholder="" aria-describedby="helpId">
                     @error('nome')
-                        <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
-                        <small id="helpId" class="text-muted">Help text</small>
+                        <small id="helpId" class="text-muted text-danger">Help text</small>
                     @enderror
                 </div>
                 <div class="col-4">
@@ -16,7 +15,7 @@
                     <input type="number" wire:model='idade' class="form-control" placeholder=""
                         aria-describedby="helpId">
                     @error('idade')
-                        <small id="helpId" class="text-muted">{{ $message }}</small>
+                        <small id="helpId" class="text-muted text-danger">{{ $message }}</small>
                     @enderror
                 </div>
                 <div class="col-4">
