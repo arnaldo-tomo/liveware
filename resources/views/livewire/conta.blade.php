@@ -8,14 +8,14 @@
 
                 <div class="col-4">
                     <label for="">Nome</label>
-                    <input type="text" wire:model='nome'class="form-control" placeholder="" aria-describedby="helpId">
+                    <input type="text" wire:model='nome'class="form-control" placeholder="Informe o nome" aria-describedby="helpId">
                     @error('nome')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-4">
                     <label for="">Idade</label>
-                    <input type="number" wire:model='idade' class="form-control" placeholder=""
+                    <input type="number" wire:model='idade' class="form-control" placeholder="informe a idade"
                         aria-describedby="helpId">
                     @error('idade')
                     <span class="text-danger">{{ $message }}</span>
