@@ -9,13 +9,15 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
     </head>
     @livewireStyles
-    <body">
+    <body>
 
         {{ $slot }}
 
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         @livewireScripts
         </body>
 
