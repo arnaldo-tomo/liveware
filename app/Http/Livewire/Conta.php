@@ -31,6 +31,7 @@ class Conta extends Component
 
         $this->nome ='';
         $this->idade ='';
+        $this->dispatchBrowserEvent('close-modal');
 
     }
 
@@ -38,4 +39,6 @@ class Conta extends Component
       $DELETE = ModelsConta::find($id);
       $DELETE->delete();
     }
+
+
 }
