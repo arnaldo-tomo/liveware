@@ -23,6 +23,11 @@
         @if (session('fechar'))
         <Script>  window.onload = function() { OpenBootstrapPopup(); };function OpenBootstrapPopup() {  $("#exampleModalToggleLabel").modal('hide'); } </script>
         @endif
+
+        @section('script')
+        <Script>  window.onload = function() { OpenBootstrapPopup(); };function OpenBootstrapPopup() {  $("#exampleModalToggleLabel").modal('hide'); } </script>
+        @endsection
+
         <script type="text/javascript">
         windown.livewire.on('userStore',()=>{
             $('#exampleModalToggle').modal('hide');
