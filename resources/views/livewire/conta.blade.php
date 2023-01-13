@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" wire:click="sair()" aria-label="Close">Cancelar</button>
+                        <button class="btn btn-primary" wire:click="sair()" >Cancelar</button>
                         <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Regsiatar
                             Produto</button>
                     </div>
@@ -57,7 +57,7 @@
 
                     </div>
                     <div class="col-2 end-100">
-                        <button type="submit" data-bs-toggle="modal" href="#exampleModalToggle"
+                        <button type="submit" style="float: right;" data-bs-toggle="modal" href="#exampleModalToggle"
                             class="btn btn-dark end"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
