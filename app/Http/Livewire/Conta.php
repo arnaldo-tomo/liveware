@@ -16,6 +16,9 @@ class Conta extends Component
         return view('livewire.conta',compact('pessoa'))->layout('app');
     }
 
+    public function limpar(){
+
+    }
     public function save(){
 
         $this->validate([
@@ -29,6 +32,8 @@ class Conta extends Component
 
         $student->save();
         session()->flash('message', 'New student has been added successfully');
+
+        $this->emit('userStore');
 
         $this->nome ='';
         $this->idade ='';
