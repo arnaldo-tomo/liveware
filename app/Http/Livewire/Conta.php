@@ -33,4 +33,9 @@ class Conta extends Component
         $this->idade ='';
 
     }
+
+    public function delete($id){
+      $DELETE = ModelsConta::find($id);
+      $DELETE->delete();
+    }
 }
