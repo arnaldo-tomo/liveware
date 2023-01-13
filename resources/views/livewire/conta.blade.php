@@ -10,7 +10,7 @@
                     <label for="">Nome</label>
                     <input type="text" wire:model='nome'class="form-control" placeholder="" aria-describedby="helpId">
                     @error('nome')
-                    <span class="form-control">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-4">
