@@ -9,6 +9,7 @@ class Conta extends Component
 {
     public $nome;
     public $idade;
+    public $updateMode = false;
     public function render()
     {
         $pessoa = ModelsConta::all();
@@ -38,6 +39,14 @@ class Conta extends Component
     public function delete($id){
       $DELETE = ModelsConta::find($id);
       $DELETE->delete();
+    }
+    public function edit($id)
+    {
+        $this->updateMode = true;
+        $user = ModelsConta::where('id',$id)->first();
+        $this->nome = $user->nome;
+        $this->idade = $user->idade;
+
     }
 
 
