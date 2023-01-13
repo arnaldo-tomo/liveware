@@ -4,16 +4,19 @@ namespace App\Http\Livewire;
 
 use App\Models\conta as ModelsConta;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Conta extends Component
 {
-    public $conta_id;
+    use WithPagination;
+    protected $paginationTheme='bootstrap';
+    public $selected_id;
     public $nome;
     public $idade;
     public $updateMode = false;
     public function render()
     {
-        $pessoa = ModelsConta::all();
+        $pessoa = ModelsConta::paginate(2);
         return view('livewire.conta',compact('pessoa'))->layout('app');
     }
 
@@ -54,6 +57,7 @@ class Conta extends Component
     {
         $this->updateMode = true;
         $user = ModelsConta::where('id',$id)->first();
+        $this->selected_id = $id;
         $this->nome = $user->nome;
         $this->idade = $user->idade;
 
@@ -62,10 +66,10 @@ class Conta extends Component
 
     public function update(){
 
-        dd($this->conta_id);
-        $student =  ModelsConta::find($this->conta_id);
-        // $student->nome = $this->nome;
-        // $student->idade = $this->idade;
+        $student =  ModelsConta::find($this->selected_id);
+        // dd($student);
+        $student->nome = $this->nome;
+        $student->idade = $this->idade;
         $student->update();
 
 
