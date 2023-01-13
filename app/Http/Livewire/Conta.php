@@ -7,7 +7,8 @@ use Livewire\Component;
 
 class Conta extends Component
 {
-    public $nome,$user_id;
+    public $conta_id;
+    public $nome;
     public $idade;
     public $updateMode = false;
     public function render()
@@ -24,7 +25,7 @@ class Conta extends Component
     public function save(){
 
         $this->validate([
-            'nome' => 'required|string',
+            'nome' => 'required|email',
             'idade' => 'required|numeric',
         ]);
 
@@ -60,8 +61,13 @@ class Conta extends Component
 
 
     public function update(){
-    $user = ModelsConta::find($this->user_id);
-        dd($this->nome);
+
+        dd($this->conta_id);
+        $student =  ModelsConta::find($this->conta_id);
+        // $student->nome = $this->nome;
+        // $student->idade = $this->idade;
+        $student->update();
+
 
     }
 
