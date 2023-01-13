@@ -3,11 +3,14 @@
     <div class="col-12">
         <div class="row">
             <form wire:submit.prevent="save">
+
+
+
                 <div class="col-4">
                     <label for="">Nome</label>
                     <input type="text" wire:model='nome'class="form-control" placeholder="" aria-describedby="helpId">
                     @error('nome')
-                        <small id="helpId" class="text-muted text-danger">Help text</small>
+                    <span class="form-control">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="col-4">
