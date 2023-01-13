@@ -19,6 +19,12 @@
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         @livewireScripts
+        <script type="text/javascript">
+        windown.livewire.on('userStore',()=>{
+            $('#exampleModalToggle').modal('hide');
+        })
+
+        </script>
         </body>
 
     </html>
