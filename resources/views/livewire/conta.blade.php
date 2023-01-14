@@ -1,5 +1,5 @@
 <div class="container">
- @include('livewire.modal')
+    @include('livewire.modal')
     <h2>Livewore</h2>
 
 
@@ -15,14 +15,19 @@
                             {{ session('message') }}
                         </div>
                     @endif
+                    <div class="row">
 
-                    <div class="col-10">
-                        LiveWire
+                        <div class="col-2">
+                            LiveWire
 
-                    </div>
-                    <div class="col-2 end-100">
-                        <button type="submit" style="float: right;" data-bs-toggle="modal" href="#exampleModalToggle"
-                            class="btn btn-dark end"><i class="fa fa-plus"></i></button>
+                        </div>
+                        <div class="col-8">
+                            <input type="search" model="pesquisar" class="form-control" placeholder="Pesquisar">
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" style="float: right;" data-bs-toggle="modal"
+                                href="#exampleModalToggle" class="btn btn-dark end"><i class="fa fa-plus"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,15 +92,15 @@
 
 
 
-<script>
-// Livewire.on('modalClose', (modalId) => {
-    //     $(modalId).modal('hide')
-})
-// window.addEventListener('modalClose', event =>{
-    //         $('#exampleModalToggle').modal('hide');
+    <script>
+        // Livewire.on('modalClose', (modalId) => {
+        //     $(modalId).modal('hide')
+        })
+        // window.addEventListener('modalClose', event =>{
+        //         $('#exampleModalToggle').modal('hide');
 
-    //     });
-</script>
+        //     });
+    </script>
 
 
 
