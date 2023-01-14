@@ -2,8 +2,6 @@
     @include('livewire.modal')
     <h2>Livewore</h2>
 
-
-
     <div class="col-12">
 
 
@@ -22,7 +20,7 @@
 
                         </div>
                         <div class="col-8">
-                            <input type="search" model="pesquisar" class="form-control" placeholder="Pesquisar">
+                            <input type="search" wire:model="pesquisar" class="form-control" placeholder="Pesquisar">
                         </div>
                         <div class="col-2">
                             <button type="submit" style="float: right;" data-bs-toggle="modal"
