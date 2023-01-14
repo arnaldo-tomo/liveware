@@ -10,14 +10,13 @@
     </head>
     @livewireStyles
     <body>
-
+{{-- <livewire:conta> --}}
         {{ $slot }}
 
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/jquery-3.6.0.min.js"></script>
 
 
 @stack('component-scripts')
