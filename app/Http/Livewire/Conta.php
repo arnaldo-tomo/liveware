@@ -11,6 +11,7 @@ class Conta extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $selected_id;
+    public $pesquisar;
     public $nome;
     public $idade;
     public $updateMode = false;
@@ -46,11 +47,9 @@ class Conta extends Component
 
         $this->updateMode = false;
         session()->flash('message', 'saved');
-        // $this->dispatchBrowserEvent('modalClose');
-        $this->emit('modalClose', '#exampleModalToggle');
+        // $this->emit('modalClose', '#exampleModalToggle');
         $this->limpar();
-        $this->nome = '';
-        $this->idade = '';
+        $this->dispatchBrowserEvent('close-modal');
     }
 
     public function delete($id)
@@ -81,7 +80,7 @@ class Conta extends Component
         $student->idade = $this->idade;
         $student->update();
         session()->flash('message', 'update');
-        $this->emit('modalClose', '#modalId');
+        $this->emit('close-modal', '#modalId');
 
         // $this->limpar();
 
