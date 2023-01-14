@@ -1,5 +1,7 @@
 <div class="container">
+
     <h2>Livewore</h2>
+
 
     <div class="col-12">
 
@@ -23,7 +25,9 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body">
+
+
+          <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead class="table-light">
@@ -64,7 +68,45 @@
                     </table>
 
 
-                    <div class="modal fade" wire:ignore.self id="exampleModalToggle" aria-hidden="true"
+
+                    <!-- Modal -->
+
+                    {{-- {{ $pessoa->links() }} --}}
+                </div>
+            </div>
+
+            <div wire:ignore.self class="modal fade" id="modalId" tabindex="-1" role="dialog"
+            aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">Update..</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form wire:submit.prevent="update">
+                            <div class="container-fluid">
+                                <label>id</label>
+                                <input class="form-control" type="hidden" wire:model="selected_id">
+                                <input class="form-control" type="text" class="form-control"
+                                    wire:model="nome">
+                            </div>
+                            <div class="container-fluid">
+                                <label>Idade</label>
+                                <input type="text" class="form-control" wire:model="idade">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="fechar" class="btn btn-secondary"
+                            >Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+            <div wire:ignore.self class="modal fade"  id="exampleModalToggle" aria-hidden="true"
                     aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -104,60 +146,26 @@
                         </form>
                     </div>
                 </div>
-                    <!-- Modal -->
-                    <div wire:ignore.self class="modal fade" id="modalId" tabindex="-1" role="dialog"
-                        aria-labelledby="modalTitleId" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalTitleId">Update..</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form wire:submit.prevent="update">
-                                        <div class="container-fluid">
-                                            <label>id</label>
-                                            <input class="form-control" type="hidden" wire:model="selected_id">
-                                            <input class="form-control" type="text" class="form-control"
-                                                wire:model="nome">
-                                        </div>
-                                        <div class="container-fluid">
-                                            <label>Idade</label>
-                                            <input type="text" class="form-control" wire:model="idade">
-                                        </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button id="fechar" class="btn btn-secondary"
-                                        >Close</button>
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- {{ $pessoa->links() }} --}}
-                </div>
-            </div>
             <div class="card-footer text-muted">
                 <i class="fa fa-copyright" aria-hidden="true"></i> Arnaldo Tomo [] 13.janeiro .2023 <i
                     class="fa fa-calendar"></i>
             </div>
         </div>
 
-    </div>
 
-    @push('component-scripts')
+        @push('component-scripts')
     <script>
         (function($){
             $(document).on('livewire:load',function(){
-            Livewire.on('modalClose',(modalId)=>{
+
+                Livewire.on('modalClose',(modalId)=>{
                 $(modalId).modal('hide')
             })
 
             })
 
         })(jQuery)
-    </script>
-
-    @endpush
+        </script>
+@endpush
+</div>
+</div>
