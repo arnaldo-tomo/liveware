@@ -1,9 +1,8 @@
 <div class="container">
-    @include('livewire.modal')
     <h2>Livewore</h2>
 
     <div class="col-12">
-
+<!--  Modal trigger button  -->
 
         <div class="card">
             <div class="card-header">
@@ -58,11 +57,13 @@
                                             data-bs-toggle="modal" data-bs-target="#modalId"><i class="fa fa-edit"></i>
                                             Editar</a>
 
-                                        <a class="btn btn-danger" wire:click="delete({{ $item->id }})"><i
+                                        <a class="btn btn-danger" data-bs-toggle="modal" wire:click="delete({{ $item->id }})" ><i
                                                 class="fa fa-trash"></i> Deletar</a>
 
                                     </td>
                                 </tr>
+                                @include('livewire.modal')
+
                             @endforeach
 
                         </tbody>
