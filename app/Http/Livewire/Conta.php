@@ -16,7 +16,7 @@ class Conta extends Component
     public $updateMode = false;
     public function render()
     {
-        $pessoa = ModelsConta::all();
+        $pessoa = ModelsConta::paginate(5);
         return view('livewire.conta',compact('pessoa'))->layout('app');
     }
 
@@ -37,17 +37,20 @@ class Conta extends Component
         $student->idade = $this->idade;
         $student->save();
 
-        $this->limpar();
         $this->updateMode = false;
+        $this->limpar();
         session()->flash('message', 'New student has been added successfully');
+        // $this->dispatchBrowserEvent('modalClose');
         $this->emit('modalClose','#exampleModalToggle');
     }
 
     public function delete($id){
       $DELETE = ModelsConta::find($id);
       $DELETE->delete();
+      $this->limpar();
       $this->emit('modalClose','#modalId');
-      session('message', 'New student has been added successfully');
+        session()->flash('message', 'New student has been added successfully');
+
 
     }
     public function edit($id)
@@ -57,6 +60,8 @@ class Conta extends Component
         $this->selected_id = $id;
         $this->nome = $user->nome;
         $this->idade = $user->idade;
+        // $this->limpar();
+
     }
 
 
@@ -66,7 +71,10 @@ class Conta extends Component
         $student->nome = $this->nome;
         $student->idade = $this->idade;
         $student->update();
-        session('message', 'New student has been added successfully');
+        session()->flash('message', 'New student has been added successfully');
+
+        // $this->limpar();
+
 
     }
 
