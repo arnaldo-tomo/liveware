@@ -10,45 +10,19 @@
     </head>
     @livewireStyles
     <body>
-
+{{-- <livewire:conta> --}}
         {{ $slot }}
 
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-3.6.0.min.js"></script>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        @livewireScripts
 
-        @if (session('fechar'))
-        <Script>  window.onload = function() { OpenBootstrapPopup(); };function OpenBootstrapPopup() {  $("#exampleModalToggleLabel").modal('hide'); } </script>
-        @endif
+@stack('component-scripts')
 
-        @section('script')
-        <Script>  window.onload = function() { OpenBootstrapPopup(); };function OpenBootstrapPopup() {  $("#exampleModalToggleLabel").modal('hide'); } </script>
-        @endsection
+          @livewireScripts
 
-        @push('scripts')
-        <script>
-            window.addEventListener('close-modal', event =>{
-                $('#addStudentModal').modal('hide');
-                $('#editStudentModal').modal('hide');
-                $('#deleteStudentModal').modal('hide');
-            });
-
-            window.addEventListener('show-edit-student-modal', event =>{
-                $('#editStudentModal').modal('show');
-            });
-
-            window.addEventListener('show-delete-confirmation-modal', event =>{
-                $('#deleteStudentModal').modal('show');
-            });
-
-            window.addEventListener('show-view-student-modal', event =>{
-                $('#viewStudentModal').modal('show');
-            });
-        </script>
-    @endpush
         </body>
 
     </html>
