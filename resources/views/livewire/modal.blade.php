@@ -1,3 +1,4 @@
+
 <div wire:ignore.self class="modal fade" id="modalId"  tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -69,15 +70,20 @@
 
 
 @push('component-scripts')
-    <script>
+
+<script>
+      window.addEventListener('close-modal', event =>{
+                $('#modalId').modal('hide');
+
+            });
+</script>
+<script>
         (function($) { $(document).on('livewire:load', function() {
 
-            Livewire.on('modalClose', (modalId) => {
+            Livewire.on('close-modal', (modalId) => {
         $(modalId).modal('hide')
 })
-
-        })
-
+})
 
         })(jQuery)
     </script>
