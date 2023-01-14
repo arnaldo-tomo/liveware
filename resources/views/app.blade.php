@@ -21,6 +21,7 @@
 
 
 @stack('component-scripts')
+
           @livewireScripts
 
         </body>
