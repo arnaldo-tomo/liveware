@@ -20,7 +20,7 @@ class Conta extends Component
         $pessoa = ModelsConta::where([
             ['nome', 'like', '%' . $this->pesquisar . '%']
 
-        ])->paginate(5);;
+        ])->orwhere('idade', 'like', '%' . $this->pesquisar . '%')->paginate(5);;
         return view('livewire.conta', compact('pessoa'))->layout('app');
     }
 
