@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class Conta extends Component
 {
     use WithPagination;
-    protected $paginationTheme='bootstrap';
+    protected $paginationTheme = 'bootstrap';
     public $selected_id;
     public $nome;
     public $idade;
@@ -17,16 +17,23 @@ class Conta extends Component
     public function render()
     {
         $pessoa = ModelsConta::paginate(5);
-        return view('livewire.conta',compact('pessoa'))->layout('app');
+        return view('livewire.conta', compact('pessoa'))->layout('app');
     }
 
-    public function limpar(){
-        $this->nome ='';
-        $this->idade ='';
-
+    public function closeModal()
+    {
+        $this->limpar();
+        $this->nome = '';
+        $this->idade = '';
+    }
+    public function limpar()
+    {
+        $this->nome = '';
+        $this->idade = '';
     }
 
-    public function save(){
+    public function save()
+    {
 
         $this->validate([
             'nome' => 'required|string',
@@ -38,25 +45,26 @@ class Conta extends Component
         $student->save();
 
         $this->updateMode = false;
-        $this->limpar();
-        session()->flash('message', 'New student has been added successfully');
+        session()->flash('message', 'saved');
         // $this->dispatchBrowserEvent('modalClose');
-        $this->emit('modalClose','#exampleModalToggle');
+        $this->emit('modalClose', '#exampleModalToggle');
+        $this->limpar();
+        $this->nome = '';
+        $this->idade = '';
     }
 
-    public function delete($id){
-      $DELETE = ModelsConta::find($id);
-      $DELETE->delete();
-      $this->limpar();
-      $this->emit('modalClose','#modalId');
-        session()->flash('message', 'New student has been added successfully');
-
-
+    public function delete($id)
+    {
+        $DELETE = ModelsConta::find($id);
+        $DELETE->delete();
+        $this->limpar();
+        session()->flash('message', 'deleted');
+        $this->emit('modalClose', '#modalId');
     }
     public function edit($id)
     {
         $this->updateMode = true;
-        $user = ModelsConta::where('id',$id)->first();
+        $user = ModelsConta::where('id', $id)->first();
         $this->selected_id = $id;
         $this->nome = $user->nome;
         $this->idade = $user->idade;
@@ -65,18 +73,18 @@ class Conta extends Component
     }
 
 
-    public function update(){
+    public function update()
+    {
         $this->updateMode = false;
         $student =  ModelsConta::find($this->selected_id);
         $student->nome = $this->nome;
         $student->idade = $this->idade;
         $student->update();
-        session()->flash('message', 'New student has been added successfully');
+        session()->flash('message', 'update');
+        $this->emit('modalClose', '#modalId');
 
         // $this->limpar();
 
 
     }
-
-
 }
