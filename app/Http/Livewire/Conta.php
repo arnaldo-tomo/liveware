@@ -26,11 +26,6 @@ class Conta extends Component
 
     }
 
-        public function sair(){
-         $this->updateMode = false;
-        $this->limpar();
-        }
-
     public function save(){
 
         $this->validate([
@@ -42,20 +37,17 @@ class Conta extends Component
         $student->idade = $this->idade;
         $student->save();
 
-        $this->emit('modalClose','#exampleModalToggle');
         $this->limpar();
         $this->updateMode = false;
         session()->flash('message', 'New student has been added successfully');
-
-
-
+        $this->emit('modalClose','#exampleModalToggle');
     }
 
     public function delete($id){
       $DELETE = ModelsConta::find($id);
       $DELETE->delete();
-      return back()->with('message', 'deletado com sicssse');
-    //   session('message', 'New student has been added successfully');
+      $this->emit('modalClose','#modalId');
+      session('message', 'New student has been added successfully');
 
     }
     public function edit($id)
@@ -74,6 +66,8 @@ class Conta extends Component
         $student->nome = $this->nome;
         $student->idade = $this->idade;
         $student->update();
+        session('message', 'New student has been added successfully');
+
     }
 
 
