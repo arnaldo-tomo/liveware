@@ -17,7 +17,10 @@ class Conta extends Component
     public $updateMode = false;
     public function render()
     {
-        $pessoa = ModelsConta::wherelike('model', $this->search ?? '')->paginate(5);
+        $pessoa = ModelsConta::where([
+            ['nome', 'like', '%' . $this->pesquisar . '%']
+
+        ])->paginate(5);;
         return view('livewire.conta', compact('pessoa'))->layout('app');
     }
 
