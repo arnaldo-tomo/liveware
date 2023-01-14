@@ -15,12 +15,13 @@ class Conta extends Component
     public $nome;
     public $idade;
     public $updateMode = false;
+
     public function render()
     {
-        $pessoa = ModelsConta::where([
-            ['nome', 'like', '%' . $this->pesquisar . '%']
+        $pessoa = ModelsConta::where('nome', 'like', '%' . $this->pesquisar . '%')
+            ->orwhere('idade', 'like', '%' . $this->pesquisar . '%')
+            ->orwhere('id', 'like', '%' . $this->pesquisar . '%')->paginate(5);
 
-        ])->orwhere('idade', 'like', '%' . $this->pesquisar . '%')->orwhere('id', 'like', '%' . $this->pesquisar . '%')->paginate(5);
         return view('livewire.conta', compact('pessoa'))->layout('app');
     }
 
