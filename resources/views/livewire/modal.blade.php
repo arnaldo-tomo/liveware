@@ -41,16 +41,16 @@
                 <div class="row">
                     <form wire:submit.prevent="save">
                         <div class="col-12">
-                            <label for="">Nome</label>
-                            <input type="text" wire:model='nome'class="form-control " value="{{ old('nome') }}"
+                            <label for="nome">Nome</label>
+                            <input type="text" wire:model='nome'class="form-control" id="nome" value="{{ old('nome') }}"
                                 placeholder="Informe o nome" aria-describedby="helpId">
                             @error('nome')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-12">
-                            <label for="">Idade</label>
-                            <input type="number" wire:model='idade' class="form-control" placeholder="informe a idade"
+                            <label for="idade">Idade</label>
+                            <input type="text" wire:model='idade'id="idade" class="form-control" placeholder="informe a idade"
                                 aria-describedby="helpId">
                             @error('idade')
                                 <span class="text-danger">{{ $message }}</span>
