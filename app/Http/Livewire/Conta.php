@@ -51,9 +51,9 @@ class Conta extends Component
 
         $this->updateMode = false;
         session()->flash('message', 'saved');
-        // $this->emit('modalClose', '#exampleModalToggle');
         $this->limpar();
-        $this->dispatchBrowserEvent('close-modal');
+        $this->emit('close-modal', '#exampleModalToggle');
+        // $this->dispatchBrowserEvent('close-modal');
     }
 
     public function delete($id)
