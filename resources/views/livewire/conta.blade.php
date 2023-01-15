@@ -52,11 +52,11 @@
                                             Ver</a>
 
                                         <a class="btn btn-success" wire:click="edit({{ $item->id }})"
-                                            data-bs-toggle="modal" data-bs-target="#modalId"><i class="fa fa-edit"></i>
+                                            data-bs-toggle="modal" data-bs-target="#modalId"><i class="fa fa-edit"></i>  <div wire:loading><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></div>
                                             Editar</a>
 
                                         <a class="btn btn-danger" data-bs-toggle="modal" wire:click="delete({{ $item->id }})" ><i
-                                                class="fa fa-trash"></i> Deletar</a>
+                                                class="fa fa-trash"></i> <div wire:loading><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></div> Deletar</a>
 
                                     </td>
                                 </tr>
