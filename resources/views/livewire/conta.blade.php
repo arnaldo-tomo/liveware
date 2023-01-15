@@ -4,7 +4,7 @@
     <div class="col-12">
 <!--  Modal trigger button  -->
 
-        <div class="card mb-4">
+        <div class="card mb-4 text-center">
             <div class="card-header">
                 <div class="row">
                     @if (session('message'))
