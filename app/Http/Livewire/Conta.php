@@ -40,8 +40,7 @@ class Conta extends Component
     public function save()
     {
 
-        $this->validate([
-            'nome' => 'required|string',
+        $this->validate(['nome' => 'required|email|min:2|max:5',
             'idade' => 'required|numeric',
         ]);
         $student = new ModelsConta();
