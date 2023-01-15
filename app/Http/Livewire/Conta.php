@@ -37,8 +37,8 @@ class Conta extends Component
         $this->idade = '';
     }
     protected $rules = [
+        'idade' => 'required|min:6',
         'nome' => 'required|email',
-        'idade' => 'required|numeric',
     ];
 
     public function save()
