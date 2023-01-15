@@ -91,7 +91,7 @@
     </div>
 
 
-
+<div wire:offline.class="bg-red-300"></div>
 
 
 
