@@ -81,13 +81,16 @@
             <div class="card-footer text-muted">
                 <i class="fa fa-copyright" aria-hidden="true"></i> Arnaldo Tomo [] 13.janeiro .2023 <i
                     class="fa fa-calendar"></i>
+                    <div wire:poll>
+    Data e Hora Atual: {{ now() }}
+</div>
             </div>
 
         </div>
         {{ $pessoa->links() }}
     </div>
 
-    <br>
+
 
 
 
