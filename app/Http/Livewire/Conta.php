@@ -14,6 +14,7 @@ class Conta extends Component
     public $pesquisar;
     public $nome;
     public $idade;
+    public $contentIsVisible;
     public $updateMode = false;
 
     public function render()
