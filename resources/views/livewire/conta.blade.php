@@ -5,13 +5,15 @@
 <!--  Modal trigger button  -->
 
         <div class="card mb-4 text-center">
+            @if (session('message'))
+            <div class="alert alert-success" role="alert">
+                {{ session('message') }}
+            </div>
+        @endif
             <div class="card-header">
                 <div class="row">
-                    @if (session('message'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('message') }}
-                        </div>
-                    @endif
+
+
                     <div class="row">
 
                         <div class="col-2">
