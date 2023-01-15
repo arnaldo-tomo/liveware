@@ -5,16 +5,10 @@
 <!--  Modal trigger button  -->
 
         <div class="card mb-4 text-center">
-
             <div class="card-header">
                 <div class="row">
-
-
-                    <div class="row">
-
                         <div class="col-2">
                             LiveWire
-
                         </div>
                         <div class="col-8">
                             <input type="search" wire:model="pesquisar" class="form-control" placeholder="Pesquisar">
@@ -22,15 +16,17 @@
                         <div class="col-2">
                             <button type="submit" style="float: right;" data-bs-toggle="modal"
                                 href="#exampleModalToggle" class="btn btn-dark end"><i class="fa fa-plus"></i></button>
-                        </div>
                     </div>
                 </div>
             </div>
-            @if (session('message'))
-            <div class="alert alert-success" role="alert">
-                {{ session('message') }}
+            <div class="container mb-4">
+                @if (session('message'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('message') }}
+                </div>
+            @endif
+
             </div>
-        @endif
 
             <div class="card-body">
                 <div class="table-responsive">
