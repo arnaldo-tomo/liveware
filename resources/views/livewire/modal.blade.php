@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-danger btn-sm"  data-bs-dismiss="modal" wire:click="closeModal">Cancelar</button>
+                <button class="btn btn-danger btn-sm"  data-bs-dismiss="modal" wire:click="closeModal">  <div wire:loading><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></div> Cancelar</button>
                 <button class="btn btn-primary btn-sm" type="submit"> <div wire:loading><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></div> Regsiatar
                     Produto</button>
 
