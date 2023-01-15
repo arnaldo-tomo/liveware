@@ -79,10 +79,10 @@
             </div>
 
         </div>
+        {{ $pessoa->links() }}
     </div>
 
     <br>
-    {{ $pessoa->links() }}
 
 
 
