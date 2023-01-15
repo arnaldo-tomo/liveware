@@ -101,7 +101,8 @@
 
 <script>
       window.addEventListener('close-modal', event =>{
-                $('#modalId').modal('hide');
+                // $('#modalId').modal('hide');
+                // $('#exampleModalToggle').modal('hide');
 
             });
 </script>
