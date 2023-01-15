@@ -36,21 +36,24 @@ class Conta extends Component
         $this->nome = '';
         $this->idade = '';
     }
+    protected $rules = [
+        'nome' => 'required|email',
+        'idade' => 'required|numeric',
+    ];
 
     public function save()
     {
-
-        $this->validate(['nome' => 'required|email|min:2|max:5',
+        $this->validate([
+            'nome' => 'required|email', //students = table name
             'idade' => 'required|numeric',
         ]);
+
         $student = new ModelsConta();
         $student->nome = $this->nome;
         $student->idade = $this->idade;
         $student->save();
 
-        $this->updateMode = false;
         session()->flash('message', 'saved');
-        $this->limpar();
         $this->emit('close-modal', '#exampleModalToggle');
         // $this->dispatchBrowserEvent('close-modal');
     }
