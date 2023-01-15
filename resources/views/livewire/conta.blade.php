@@ -40,7 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pessoa as $item)
+                            @forelse ($pessoa as $item)
                                 <tr>
                                     <td scope="row">{{ $item->id }}</td>
                                     <td scope="row">{{ $item->nome }}</td>
@@ -52,17 +52,24 @@
                                             Ver</a>
 
                                         <a class="btn btn-success" wire:click="edit({{ $item->id }})"
-                                            data-bs-toggle="modal" data-bs-target="#modalId"><i class="fa fa-edit"></i>  <div wire:loading><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></div>
+                                            data-bs-toggle="modal" data-bs-target="#modalId"><i class="fa fa-edit"></i>
                                             Editar</a>
 
                                         <a class="btn btn-danger" data-bs-toggle="modal" wire:click="delete({{ $item->id }})" ><i
-                                                class="fa fa-trash"></i> <div wire:loading><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></div> Deletar</a>
+                                                class="fa fa-trash"></i> Deletar</a>
 
                                     </td>
                                 </tr>
                                 @include('livewire.modal')
+                                @empty
+                                <tr>
+                                <td>  <h1 class="display-6">NENHUM DADO {{$pesquisar}}</h1></td>
+                                <td>  <h1 class="display-6">NENHUM DADO {{$pesquisar}}</h1></td>
+                                <td>  <h1 class="display-6">NENHUM DADO {{$pesquisar}}</h1></td>
+                                <td>  <h1 class="display-6">NENHUM DADO {{$pesquisar}}</h1></td>
+                                </tr>
 
-                            @endforeach
+                            @endforelse
 
                         </tbody>
                         <tfoot>
