@@ -1,9 +1,6 @@
 <div class="container">
     <h2>Livewore</h2>
-
     <div class="col-12">
-<!--  Modal trigger button  -->
-
         <div class="card mb-4 text-center">
             <div class="card-header">
                 <div class="row">
