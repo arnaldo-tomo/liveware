@@ -1,12 +1,12 @@
-
-<div wire:ignore.self class="modal fade" id="modalId"  tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
+<div wire:ignore.self class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form wire:submit.prevent="update">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitleId">Update..</h5>
-                    <button type="button" class="btn-close"  wire:click="closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" wire:click="closeModal" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
@@ -34,7 +34,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalToggleLabel">Registar Produtos</h5>
-                <button type="button" class="btn-close"  wire:click="closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" wire:click="closeModal" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
@@ -42,16 +43,16 @@
                     <form wire:submit.prevent="save">
                         <div class="col-12">
                             <label for="nome">Nome</label>
-                            <input type="text" wire:model='nome'class="form-control" id="nome" value="{{ old('nome') }}"
-                                placeholder="Informe o nome" aria-describedby="helpId">
+                            <input type="text" wire:model='nome'class="form-control" id="nome"
+                                value="{{ old('nome') }}" placeholder="Informe o nome" aria-describedby="helpId">
                             @error('nome')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="col-12">
                             <label for="idade">Idade</label>
-                            <input type="text" wire:model='idade'id="idade" class="form-control" placeholder="informe a idade"
-                                aria-describedby="helpId">
+                            <input type="text" wire:model='idade'id="idade" class="form-control"
+                                placeholder="informe a idade" aria-describedby="helpId">
                             @error('idade')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -59,9 +60,11 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-danger btn-sm"  data-bs-dismiss="modal" wire:click="closeModal"> Cancelar</button>
-                <button class="btn btn-primary btn-sm" type="submit"> <div wire:loading><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></div> Regsiatar
-                    Produto</button>
+                <button class="btn btn-danger btn-sm" data-bs-dismiss="modal" wire:click="closeModal"> Cancelar</button>
+                <button class="btn btn-primary btn-sm" type="submit">
+                    <div wire:loading><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i></div> Regsiatar
+                    Produto
+                </button>
 
             </div>
         </div>
@@ -72,13 +75,14 @@
 
 
 <!-- Modal Body-->
-<div wire:ignore.self class="modal fade " id="delete{{ $item->id }}" tabindex="-2" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+<div wire:ignore.self class="modal fade " id="delete{{ $item->id }}" tabindex="-2" role="dialog"
+    aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-                <div class="modal-header bg-danger">
-                        <h5 class="modal-title" id="modalTitleId">DELETDAE</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title" id="modalTitleId">DELETDAE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     {{ $item->nome }}
@@ -99,21 +103,22 @@
 
 
 @push('component-scripts')
+    <script>
+        window.addEventListener('close-modal', event => {
+            // $('#modalId').modal('hide');
+            // $('#exampleModalToggle').modal('hide');
 
-<script>
-      window.addEventListener('close-modal', event =>{
-                // $('#modalId').modal('hide');
-                // $('#exampleModalToggle').modal('hide');
+        });
+    </script>
+    <script>
+        (function($) {
+            $(document).on('livewire:load', function() {
 
-            });
-</script>
-<script>
-        (function($) { $(document).on('livewire:load', function() {
+                Livewire.on('close-modal', (modalId) => {
 
-            Livewire.on('close-modal', (modalId) => {
-        $(modalId).modal('hide')
-})
-})
+                    $(modalId).modal('hide')
+                })
+            })
 
         })(jQuery)
     </script>
