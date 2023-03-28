@@ -9,3 +9,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',LivewireConta::class);
+// Route::get('/',LivewireConta::class);
