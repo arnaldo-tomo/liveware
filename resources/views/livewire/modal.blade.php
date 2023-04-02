@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" data-bs-dismiss="modal" wire:click="closeModal">Close</button>
+                    <button type="submit" class="btn btn-info">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>
