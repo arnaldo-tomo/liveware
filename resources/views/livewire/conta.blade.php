@@ -1,4 +1,5 @@
 <div class="container">
+    
     <h2>Livewore</h2>
     <div class="col-12">
         <div class="card mb-4 text-center">
@@ -9,7 +10,10 @@
                         </div>
                         <div class="col-8">
                             <input type="search" wire:model="pesquisar" class="form-control" placeholder="Pesquisar">
+                            <input type="search" wire:model="search" class="form-control" placeholder="Pesquisar">4
                         </div>
+
+                        {{$search}}
                         <div class="col-2">
                             <button type="submit" style="float: right;" data-bs-toggle="modal"
                                 href="#exampleModalToggle" class="btn btn-dark end"><i class="fa fa-plus"></i></button>
@@ -67,7 +71,7 @@
                                 </tr>
 
                             @endforelse
-
+ <h1 class="display-6">NENHUM DADO {{$pesquisar}}</h1>
                         </tbody>
                         <tfoot>
 
