@@ -12,6 +12,7 @@ class Conta extends Component
     protected $paginationTheme = 'bootstrap';
     public $selected_id;
     public $pesquisar;
+    public $search;
     public $nome;
     public $idade;
     public $contentIsVisible;
